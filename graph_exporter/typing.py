@@ -9,3 +9,7 @@ class MixupItem:
     source_indices: tuple[int, int]
 
 
+@dataclass
+class ImportData:
+    mixup_items: list[MixupItem]
+    metadata: dict[str, Any]
