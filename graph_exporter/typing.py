@@ -20,11 +20,10 @@ class BaseConfig:
 @dataclass
 class GeoMixConfig(BaseConfig):
     num_graphs: int  # default: 10
-    num_nodes: int  # default: 20
+    num_nodes: int  # default: 20 for IMDB/MUTAG & 40 for PROTEINS/MSRC_9
     alpha_fgw: float  # default: 1.0
     sample_dist: Literal["uniform", "beta"]  # default: uniform
-    beta_alpha: float  # default: 5.0
-    beta_beta: float  # default: 0.5
+    mixup_alpha: float  # default: (5.0, 0.5)
     uniform_min: float  # default: 0.0
     uniform_max: float  # default: 5e-2
     clip_eps: float  # default: 1e-3
