@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from enum import Enum
 from typing import Any, Literal
 
 
@@ -46,6 +45,6 @@ class MixupItem:
 @dataclass
 class ImportData:
     mixup_items: list[MixupItem]
-    metadata: BaseConfig
+    config: BaseConfig
 
 

@@ -22,7 +22,7 @@ def export(
     timestamp = time.strftime("%Y-%m-%d-%H-%M-%S")
 
     with open(os.path.join(path, timestamp + "_graphs.pkl"), "wb") as f:
-        pickle.dump(mixup_items, f)
+        pickle.dump((config, mixup_items), f)
 
     with open(os.path.join(path, timestamp + "_config.yml"), "w") as f:
         yaml.dump(asdict(config), f)
