@@ -1,18 +1,18 @@
-import sys
-import pickle
-import time
 import os
-from typing import Any
+import pickle
+import sys
+import time
+from dataclasses import asdict
 
 import yaml
 
-from graph_exporter.typing import MixupItem
+from graph_exporter.typing import MixupItem, BaseConfig
 
 
 def export(
     mixup_items: list[MixupItem],
     dataset_name: str,
-    metadata: dict[str, Any],
+    config: BaseConfig,
     *,
     base_dir: str = "export",
     terminate: bool = True,
@@ -24,8 +24,8 @@ def export(
     with open(os.path.join(path, timestamp + "_graphs.pkl"), "wb") as f:
         pickle.dump(mixup_items, f)
 
-    with open(os.path.join(path, timestamp + "_metadata.yml"), "w") as f:
-        yaml.dump(metadata, f)
+    with open(os.path.join(path, timestamp + "_config.yml"), "w") as f:
+        yaml.dump(asdict(config), f)
 
     if terminate:
         sys.exit(0)
