@@ -29,6 +29,15 @@ class GeoMixConfig(BaseConfig):
     clip_eps: float  # default: 1e-3
 
 
+@dataclass
+class FGWMixupConfig(BaseConfig):
+    measure: Literal["degree", "uniform"]  # default: degree
+    metric: Literal["sp", "adj"]  # default: sp
+    fgw_alpha: float  # default: 0.95
+    mixup_alpha: float  # default: 0.2 (called "beta_k")
+    loss_fun: Literal["square_loss", "kl_loss"]  # default: square_loss
+
+
 # ===
 # Import / Export.
 # ===
