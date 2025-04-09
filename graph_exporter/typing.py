@@ -29,6 +29,11 @@ class GeoMixConfig(BaseConfig):
     clip_eps: float  # default: 1e-3
 
 
+# ===
+# FGWMixup.
+# ===
+
+
 @dataclass
 class FGWMixupConfig(BaseConfig):
     measure: Literal["degree", "uniform"]  # default: degree
