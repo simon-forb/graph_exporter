@@ -51,6 +51,14 @@ class FGWMixupConfig(BaseConfig):
 class IfMixupConfig(BaseConfig):
     mixup_alpha: float # default: Beta(20, 1)
 
+# ===
+# SubMix.
+# ===
+
+@dataclass
+class SubMixConfig(BaseConfig):
+    aug_size: float
+
 
 # ===
 # Import / Export.
