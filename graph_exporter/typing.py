@@ -10,7 +10,6 @@ from typing import Any, Literal
 @dataclass
 class BaseConfig:
     seed: int
-    mixup_alpha: float
 
 
 # ===
@@ -27,7 +26,7 @@ class GeoMixConfig(BaseConfig):
     uniform_min: float  # default: 0.0
     uniform_max: float  # default: 5e-2
     clip_eps: float  # default: 1e-3
-    # mixup_alpha default: (5.0, 0.5)
+    mixup_alpha: float # default (5.0, 0.5)
 
 
 # ===
@@ -41,7 +40,16 @@ class FGWMixupConfig(BaseConfig):
     metric: Literal["sp", "adj"]  # default: sp
     fgw_alpha: float  # default: 0.95
     loss_fun: Literal["square_loss", "kl_loss"]  # default: square_loss
-    # mixup_alpha default: 0.2 (called "beta_k")
+    mixup_alpha: float  # default: 0.2 (called "beta_k")
+
+
+# ===
+# IfMixup.
+# ===
+
+@dataclass
+class IfMixupConfig(BaseConfig):
+    mixup_alpha: float # default: Beta(20, 1)
 
 
 # ===
