@@ -41,6 +41,7 @@ class FGWMixupConfig(BaseConfig):
     fgw_alpha: float  # default: 0.95
     loss_fun: Literal["square_loss", "kl_loss"]  # default: square_loss
     mixup_alpha: float  # default: 0.2 (called "beta_k")
+    rho: float  # hp search over {0.1, 1, 10}
 
 
 # ===
