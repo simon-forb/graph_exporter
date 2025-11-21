@@ -26,7 +26,7 @@ class GeoMixConfig(BaseConfig):
     uniform_min: float  # default: 0.0
     uniform_max: float  # default: 5e-2
     clip_eps: float  # default: 1e-3
-    mixup_alpha: float # default (5.0, 0.5)
+    mixup_alpha: float  # default (5.0, 0.5)
 
 
 # ===
@@ -48,13 +48,16 @@ class FGWMixupConfig(BaseConfig):
 # IfMixup.
 # ===
 
+
 @dataclass
 class IfMixupConfig(BaseConfig):
-    mixup_alpha: float # default: Beta(20, 1)
+    mixup_alpha: float  # default: Beta(20, 1)
+
 
 # ===
 # SubMix.
 # ===
+
 
 @dataclass
 class SubMixConfig(BaseConfig):
@@ -71,11 +74,10 @@ class MixupItem:
     graph_dict: dict[str, Any]
     lam: float
     source_indices: tuple[int, int]
+    creation_time_us: int
 
 
 @dataclass
 class ImportData:
     mixup_items: list[MixupItem]
     config: BaseConfig
-
-
